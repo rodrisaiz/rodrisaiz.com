@@ -1,0 +1,773 @@
+html{
+    scroll-behavior: smooth;
+  }
+
+
+
+body{
+    background-color: black;
+    margin: 0px;
+    
+
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/*nav*/
+nav{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 15px;
+    margin: 20px;
+
+    scroll-behavior: smooth;
+   
+}
+
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+a:hover{
+
+    color: #0097d3;
+}
+
+/*main*/
+
+
+
+.container{
+    height: 900px;
+    width: 675px;
+    position: relative;
+    margin-left: 50px;
+}
+
+.gradient{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to top, black, transparent);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0.7;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.presentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 60px;
+}
+
+.hiPresentation{
+    margin-top: 100px;
+}
+
+.hiContainer{
+    box-sizing: content-box;
+    height: 200px;
+    margin-left: -5px;
+}
+
+
+.hi{
+    font-size: 180px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+
+.rodrisaiz{
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    
+    
+}
+
+.rodrisaiz:hover{
+    color: #0097d3;
+}
+
+
+/*test*/
+
+
+
+.testcontainer{
+    height: 900px;
+    width: 675px;
+    position: relative;
+    margin-left: 50px;
+}
+
+.testgradient{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to top, black, transparent);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0.7;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.testpresentation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 60px;
+}
+
+.testhiPresentation{
+    margin-top: 100px;
+}
+
+.testhiContainer{
+    box-sizing: content-box;
+    height: 200px;
+    margin-left: -5px;
+}
+
+
+
+.testrodrisaiz{
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    color: #0097d3;
+ 
+
+}
+
+/*fin del test*/
+
+
+/*Languages*/
+
+.languageMainTitle{
+    text-align: center;
+    font-size: 100px;
+    margin-bottom: 80px;
+    
+}
+
+
+.languageClass{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+
+}
+
+.languageItem{
+    height: 400px;
+    width: 400px;
+    border: 1px solid #ffffff60;
+    border-radius: 10px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+/*Contact*/
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+
+    
+    
+}
+
+.contact h2{
+    font-size: 100px;
+    margin-bottom: 50px;
+}
+.contact h3{
+    font-size: 50px;
+    margin-bottom: 80px;
+}
+
+/*contact buttons*/
+.contactButtons{    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 120px;
+
+}
+
+
+/*linketree*/
+
+.linketree {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    /* overflow: hidden; */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .linketreeSvgContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    letter-spacing: 0.8px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+  
+  .linketreeBG {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #3fdc5c;
+    z-index: -1;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: all 0.3s;
+  }
+  
+  .linketree:hover .linketreeBG {
+    transform: rotate(35deg);
+    transform-origin: bottom;
+
+    background: #3fdc5c60;
+  }
+  
+  .linketree:hover .linketreeSvgContainer {
+    border: 1px solid rgba(216, 216, 216, 0.466);
+    background-color: rgba(190, 190, 190, 0.466);
+    backdrop-filter: blur(4px);
+  }
+  
+
+  /*mail*/
+
+.mail {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    /* overflow: hidden; */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .mailSvgContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    letter-spacing: 0.8px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+  
+  .mailBG {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: red;
+    z-index: -1;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: all 0.3s;
+  }
+  
+  .mail:hover .mailBG {
+    transform: rotate(35deg);
+    transform-origin: bottom;
+
+    background-color: #ff000060;
+  }
+  
+  .mail:hover .mailSvgContainer {
+    border: 1px solid rgba(216, 216, 216, 0.466);
+    background-color: rgba(190, 190, 190, 0.466);
+    backdrop-filter: blur(4px);
+  }
+
+
+  /*linkeding*/
+
+.linkeding {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    /* overflow: hidden; */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .linkedingSvgContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    letter-spacing: 0.8px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+  
+  .linkedingBG {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #0097d3;
+    z-index: -1;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: all 0.3s;
+  }
+  
+  .linkeding:hover .linkedingBG {
+    transform: rotate(35deg);
+    transform-origin: bottom;
+
+    background: #0097d360;
+  }
+  
+  .linkeding:hover .linkedingSvgContainer {
+    border: 1px solid rgba(216, 216, 216, 0.466);
+    background-color: rgba(190, 190, 190, 0.466);
+    backdrop-filter: blur(4px);
+  }
+  
+
+   /*github*/
+
+.github {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    /* overflow: hidden; */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .githubSvgContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+    letter-spacing: 0.8px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+  
+  .githubBG {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: gray;
+    z-index: -1;
+    border-radius: 10px;
+    pointer-events: none;
+    transition: all 0.3s;
+  }
+  
+  .github:hover .githubBG {
+    transform: rotate(35deg);
+    transform-origin: bottom;
+
+    background: #55545460;
+  }
+  
+  .github:hover .githubSvgContainer {
+    border: 1px solid rgba(216, 216, 216, 0.466);
+    background-color: rgba(190, 190, 190, 0.466);
+    backdrop-filter: blur(4px);
+  }
+  
+/*Download CV Button*/
+
+.containerDarkButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.button {
+   
+    &.dark {
+        --background: transparent;
+        --rectangle: black;
+        --arrow: white;
+        --text: white;
+        --success: #0097d3;
+    }
+}
+
+
+.button {
+    /*--text: #fff;
+    --arrow: #fff;
+    --checkmark: #fff;*/
+    --checkmark: white;
+    /*--shadow: rgba(10, 22, 50, .24);*/
+    /*--shadow: rgba(255, 255, 255, 0.103);*/
+    /*test*/
+    border: 2px solid white;
+    width: 238px;
+   
+    /*end test*/
+    display: flex;
+    overflow: hidden;
+    text-decoration: none;
+    /* -webkit-radial-gradient(white, black);*/
+    background: var(--background);
+    border-radius: 10px;
+    /*box-shadow: 0 2px 8px -1px var(--shadow);*/
+    transition: transform .2s ease, box-shadow .2s ease;
+    &:active {
+        transform: scale(.95);
+        box-shadow: 0 1px 4px -1px var(--shadow);
+    }
+    ul {
+        margin: 0;
+        padding: 16px 40px;
+        list-style: none;
+        text-align: center;
+        position: relative;
+        backface-visibility: hidden;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 28px;
+        color: var(--text);
+        li {
+            &:not(:first-child) {
+                top: 16px;
+                left: 0;
+                right: 0;
+                position: absolute;
+            }
+            &:nth-child(2) {
+                top: 76px;
+            }
+            &:nth-child(3) {
+                top: 136px;
+            }
+        }
+    }
+    & > div {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background: var(--rectangle);
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+        &:before {
+            border-radius: 1px;
+            width: 2px;
+            top: 50%;
+            left: 50%;
+            height: 17px;
+            margin: -9px 0 0 -1px;
+            background: var(--arrow);
+        }
+        &:after {
+            width: 61px;
+            height: 60px;
+            transform-origin: 50% 0;
+            border-radius: 0 0 80% 80%;
+            background: var(--success);
+            top: 0;
+            left: 0;
+            transform: scaleY(0);
+        }
+        
+        svg {
+            display: block;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 50%;
+            top: 50%;
+            margin: -9px 0 0 -10px;
+            fill: none;
+            z-index: 1;
+            stroke-width: 2px;
+            stroke: var(--arrow);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+    }
+    &.loading {
+        ul {
+            animation: text calc(var(--duration) * 1ms) linear forwards calc(var(--duration) * .065ms);
+        }
+        & > div {
+            &:before {
+                animation: line calc(var(--duration) * 1ms) linear forwards calc(var(--duration) * .065ms);
+            }
+            &:after {
+                animation: background calc(var(--duration) * 1ms) linear forwards calc(var(--duration) * .065ms);
+            }
+            svg {
+                animation: svg calc(var(--duration) * 1ms) linear forwards calc(var(--duration) * .065ms);
+            }
+            
+        }
+    }
+}
+
+@keyframes text {
+    10%,
+    85% {
+        transform: translateY(-100%);
+    }
+    95%,
+    100% {
+        transform: translateY(-200%);
+    }
+}
+
+@keyframes line {
+    5%,
+    10% {
+        transform: translateY(-30px);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    65% {
+        transform: translateY(0);
+    }
+    75%,
+    100% {
+        transform: translateY(30px);
+    }
+}
+
+@keyframes svg {
+    0%,
+    20% {
+        stroke-dasharray: 0;
+        stroke-dashoffset: 0;
+    }
+    21%,
+    89% {
+        stroke-dasharray: 26px;
+        stroke-dashoffset: 26px;
+        stroke-width: 3px;
+        margin: -10px 0 0 -10px;
+        stroke: var(--checkmark);
+    }
+    100% {
+        stroke-dasharray: 26px;
+        stroke-dashoffset: 0;
+        margin: -10px 0 0 -10px;
+        stroke: var(--checkmark);
+    }
+    12% {
+        opacity: 1;
+    }
+    20%,
+    89% {
+        opacity: 0;
+    }
+    90%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes background {
+    10% {
+        transform: scaleY(0);
+    }
+    40% {
+        transform: scaleY(.15);
+    }
+    65% {
+        transform: scaleY(.5);
+        border-radius: 0 0 50% 50%;
+    }
+    75% {
+        border-radius: 0 0 50% 50%;
+    }
+    90%,
+    100% {
+        border-radius: 0;
+    }
+    75%,
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+/*
+html {
+    box-sizing: border-box;
+    /*-webkit-font-smoothing: antialiased;*//*
+}
+
+* {
+    box-sizing: inherit;
+    &:before,
+    &:after {
+        box-sizing: inherit;
+    }
+}
+
+/* Center & dribbble
+
+body {
+    min-height: 100vh;
+    display: flex;
+    font-family: 'Roboto', Arial;
+    justify-content: center;
+    align-items: center;
+    background: #E4ECFA;
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        & > div {
+            flex-basis: 100%;
+            width: 0;
+        }
+        .button {
+            margin: 16px;
+            @media(max-width: 400px) {
+                margin: 12px;
+            }
+        }
+    }
+    .dribbble {
+        position: fixed;
+        display: block;
+        right: 20px;
+        bottom: 20px;
+        img {
+            display: block;
+            height: 28px;
+        }
+    }
+}
+
+
+
+
+  /**/
+
+/*footer*/
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-inline: 60px;
+}
+
+
+.links{
+    align-content: center;
+    
+}
+
+.linktree:hover{
+    color: #3fdc5c;
+}
+
+.mail:hover{
+    color: red;
+}
+.linkedin:hover{
+    color: #0097d3;
+}
+
+.github:hover{
+    color: gray;
+}
+
+
