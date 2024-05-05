@@ -105,66 +105,6 @@ h2{
     color: #0097d3;
 }
 
-
-/*test*/
-
-
-
-.testcontainer{
-    height: 900px;
-    width: 675px;
-    position: relative;
-    margin-left: 50px;
-}
-
-.testgradient{
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(to top, black, transparent);
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0.7;
-}
-
-img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.testpresentation {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 60px;
-}
-
-.testhiPresentation{
-    margin-top: 100px;
-}
-
-.testhiContainer{
-    box-sizing: content-box;
-    height: 200px;
-    margin-left: -5px;
-}
-
-
-
-.testrodrisaiz{
-    font-size: 50px;
-    font-family: "Montserrat", sans-serif;
-    color: #0097d3;
- 
-
-}
-
-/*fin del test*/
-
-
 /*Languages*/
 
 .languageMainTitle{
@@ -181,6 +121,8 @@ img{
     justify-content: center;
     gap: 50px;
 
+    
+
 }
 
 .languageItem{
@@ -192,12 +134,79 @@ img{
     text-align: center;
     font-size: 30px;
     margin-bottom: 20px;
+    position: relative;
+
+    box-shadow: 10px 10px 10px white;
+}
+
+.languageTitle{
+
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-bottom: 0px;
+
+
+}
+
+/*test*/
+
+.allLang{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 80%;
+    gap: 15px;
+    margin: auto;
+    align-content: center;
+    padding-top: 10px;
+
+
 }
 
 
+.langDiv{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.langTitle{
+    opacity: 0;
+    align-self: center;
+    display:flex;
+    transition-property: all;
+    transition-duration: 0.5s;
+    position: absolute;
+    scale: 0;
+}
+
+.langDiv:hover .langTitle{
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    display:flex;
+    position: absolute;
+    opacity: 1;
+    scale: 1;
+}
 
 
+.langImg{
+    width: 80px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    scale: 1;
+}
 
+.langDiv:hover .langImg{
+    opacity: 0;
+    scale: 0;
+}
+
+
+/*end test*/
 
 /*Contact*/
 
