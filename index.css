@@ -128,7 +128,7 @@ h2{
 .languageItem{
     height: 400px;
     width: 400px;
-    border: 1px solid #ffffff60;
+    border: 2px solid #ffffff23;
     border-radius: 10px;
     background-color: transparent;
     text-align: center;
@@ -136,8 +136,9 @@ h2{
     margin-bottom: 20px;
     position: relative;
 
-    box-shadow: 10px 10px 10px white;
 }
+
+
 
 .languageTitle{
 
@@ -151,38 +152,44 @@ h2{
 /*test*/
 
 .allLang{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: 80%;
-    width: 80%;
-    gap: 15px;
-    margin: auto;
-    align-content: center;
-    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat( 3, minmax(80px, 1fr));
+    grid-template-rows: repeat( 3, minmax(90px, 1fr));
+    grid-column-gap: 15px;
+    grid-row-gap: 0px;
+
+    /*
+    height: 400px;
+    width: 350px;
+    */
+    padding-top: 20px;
+    margin: 15px;
 
 
-}
-
-
-.langDiv{
+ 
+  }
+  
+  
+  .langDiv{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 5px;
-}
-
-.langTitle{
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .langTitle{
     opacity: 0;
     align-self: center;
     display:flex;
-    transition-property: all;
-    transition-duration: 0.5s;
+    transition-property: opacity;
+    transition-duration: 1s;
     position: absolute;
     scale: 0;
-}
+  }
 
-.langDiv:hover .langTitle{
+  .langDiv:hover .langTitle{
     color: white;
     font-size: 20px;
     align-self: center;
@@ -190,20 +197,23 @@ h2{
     position: absolute;
     opacity: 1;
     scale: 1;
-}
-
-
-.langImg{
-    width: 80px;
+    transition-property: opacity;
+    transition-duration: 1s;
+  }
+  
+  .langImg{
+    width: 60px;
+    height: 60px;
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.8s;
     scale: 1;
-}
-
-.langDiv:hover .langImg{
+   
+  }
+  
+  .langDiv:hover .langImg{
     opacity: 0;
     scale: 0;
-}
+  }
 
 
 /*end test*/
@@ -243,8 +253,8 @@ h2{
 /*linketree*/
 
 .linketree {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,8 +311,8 @@ h2{
   /*mail*/
 
 .mail {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -359,8 +369,8 @@ h2{
   /*linkeding*/
 
 .linkeding {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -417,8 +427,8 @@ h2{
    /*github*/
 
 .github {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -756,27 +766,6 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     margin-inline: 60px;
+    padding-bottom: 15px;
 }
-
-
-.links{
-    align-content: center;
-    
-}
-
-.linktree:hover{
-    color: #3fdc5c;
-}
-
-.mail:hover{
-    color: red;
-}
-.linkedin:hover{
-    color: #0097d3;
-}
-
-.github:hover{
-    color: gray;
-}
-
 
