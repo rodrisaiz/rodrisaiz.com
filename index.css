@@ -112,6 +112,7 @@ h2{
     font-size: 100px;
     margin-bottom: 80px;
     
+    
 }
 
 
@@ -127,30 +128,41 @@ h2{
 
 .languageItem{
     height: 400px;
-    width: 400px;
-    border: 2px solid #ffffff23;
+    width: 380px;
+    border: 1px solid #ffffff30;
     border-radius: 10px;
     background-color: transparent;
     text-align: center;
     font-size: 30px;
     margin-bottom: 20px;
     position: relative;
+    
+    box-shadow: 0px 0px 5px 0px;
 
 }
 
+.languageItem:hover{
+
+    box-shadow: 0px 0px 15px 1px ;
+}
 
 
 .languageTitle{
-
+    width: 250px;
+    margin: auto;
     margin-top: 20px;
     margin-bottom: 0px;
     margin-bottom: 0px;
 
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ffffff30;
 
 }
 
 /*test*/
+/*border-bottom: 1px solid #fff;*/
 
+   
 .allLang{
     display: grid;
     grid-template-columns: repeat( 3, minmax(80px, 1fr));
@@ -162,6 +174,78 @@ h2{
     height: 400px;
     width: 350px;
     */
+    padding-top: 20px;
+    margin: 15px;
+
+
+ 
+  }
+
+
+   
+  .langDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .langTitle{
+    opacity: 0;
+    align-self: center;
+    display:flex;
+    transition-property: opacity;
+    transition-duration: 1s;
+    position: absolute;
+    scale: 0;
+  }
+
+  .langDiv:hover .langTitle{
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    display:flex;
+    position: absolute;
+    opacity: 1;
+    scale: 1;
+    transition-property: opacity;
+    transition-duration: 1s;
+  }
+  
+  .langImg{
+    width: 60px;
+    height: 60px;
+    transition-property: all;
+    transition-duration: 0.8s;
+    scale: 1;
+   
+  }
+  
+  .langDiv:hover .langImg{
+    opacity: 0;
+    scale: 0;
+  }
+
+
+
+
+
+/*end test*/
+/*Language working
+
+.allLang{
+    display: grid;
+    grid-template-columns: repeat( 3, minmax(80px, 1fr));
+    grid-template-rows: repeat( 3, minmax(90px, 1fr));
+    grid-column-gap: 15px;
+    grid-row-gap: 0px;
+
+    /*
+    height: 400px;
+    width: 350px;
+    *//*
     padding-top: 20px;
     margin: 15px;
 
@@ -216,7 +300,10 @@ h2{
   }
 
 
-/*end test*/
+  /*End of language working*/
+
+
+
 
 /*Contact*/
 
