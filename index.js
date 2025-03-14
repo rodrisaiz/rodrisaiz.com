@@ -152,6 +152,6 @@ function downloadPDF(pdfURL, pdfFilename) {
 
 document.getElementById("descargarPDF").addEventListener("click", function (event) {
     event.preventDefault(); // Evita que el enlace recargue la página
-    downloadPDF("127.0.0.1/PDF/rodrisaizcv.pdf", "rodrisaizcv.pdf");
+    downloadPDF("https://rodrisaiz.github.io/rodrisaiz.com/PDF/rodrisaizcv.pdf", "rodrisaizcv.pdf");
 });
 
