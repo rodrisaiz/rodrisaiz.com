@@ -128,3 +128,30 @@ let points = pointsNew ? pointsNew : [
 d = points.reduce((acc, point, i, a) => i === 0 ? `M ${point[0]},${point[1]}` : `${acc} ${getPoint(point, i, a, smoothing)}`, '');
 return `<path d="${d}" />`;
 }
+
+//Footer phrase
+const today = new Date();
+
+let year = today.getUTCFullYear();
+
+console.log(year);
+
+let menssage = `&#169; ${year} Rodri Saiz™. All rights reserved... the left's also. This page works without cookies. 🙃`;
+document.getElementById("footerPhrase").innerHTML = menssage;
+
+//PDF downloader
+
+function downloadPDF(pdfURL, pdfFilename) {
+    let enlace = document.createElement("a");
+    enlace.href = pdfURL;
+    enlace.download = pdfFilename;
+    document.body.appendChild(enlace);
+    enlace.click();
+    document.body.removeChild(enlace);
+}
+
+document.getElementById("descargarPDF").addEventListener("click", function (event) {
+    event.preventDefault(); // Evita que el enlace recargue la página
+    downloadPDF("127.0.0.1/PDF/rodrisaizcv.pdf", "rodrisaizcv.pdf");
+});
+

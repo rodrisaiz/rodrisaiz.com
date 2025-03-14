@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" type="text/css" href="index.css" />
-
+   <script defer src="index.js"></script>
 
    <!--font test-->
   
@@ -49,7 +49,7 @@
                </div>
       
                <h2>I´m <a class="rodrisaiz"  href="https://www.linkedin.com/in/rodrisaiz/">Rodri Saiz</a></h2>
-               <h2>Your next  full stack developer</h2>
+               <h2>Your next developer</h2>
            </div>
        </section>
 
@@ -94,6 +94,7 @@
                        <h3 class="languageTitle">Backend</h3>
 
                            <div class="allLang">
+                           
                                <div class="langDiv">
                                    <h3 class="langTitle">PHP</h3>              
                                    <img src="img/php.svg" alt="PHP logo" class="langImg">         
@@ -269,7 +270,7 @@
           
             <div class="containerDarkButton">
                           
-               <a href="/PDF/Rodrigo Saiz CV.pdfS" download="rodrisaizcv.pdf" class="button dark" >
+               <a id="descargarPDF" class="button dark" >
 
                    <ul>
                        <li>&#68;ownload CV</li>
@@ -289,10 +290,8 @@
    </main>
    <footer>
        <div >
-           <p  class="footesText" >&#169;2024 Rodri Saiz™. All rights reserved... the left's also. This page works without cookies. 🙃</p>
+            <p class="footesText" id="footerPhrase" ></p>
        </div>
    </footer>
 </body>
 </html>
-
-<script src="index.js"> </script>
