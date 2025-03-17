@@ -143,18 +143,26 @@ document.getElementById("footerPhrase").innerHTML = menssage;
 //PDF downloader
 
 function downloadPDF(pdfURL, pdfFilename) {
-    let enlace = document.createElement("a");
-    enlace.href = pdfURL;
-    enlace.download = pdfFilename;
-    document.body.appendChild(enlace);
-    enlace.click();
-    document.body.removeChild(enlace);
+    fetch(pdfURL)
+        .then(response => response.blob())
+        .then(blob => {
+            let enlace = document.createElement("a");
+            let url = URL.createObjectURL(blob);
+            enlace.href = url;
+            enlace.download = pdfFilename;
+            document.body.appendChild(enlace);
+            enlace.click();
+            document.body.removeChild(enlace);
+            URL.revokeObjectURL(url); // Liberar memoria
+        })
+        .catch(error => console.error("Error descargando el PDF:", error));
 }
 
 document.getElementById("descargarPDF").addEventListener("click", function (event) {
     event.preventDefault();
     downloadPDF("https://rodrisaiz.github.io/rodrisaiz.com/PDF/rodrisaizcv.pdf", "rodrisaizcv.pdf");
 });
+
 
 //Visits counter
 
