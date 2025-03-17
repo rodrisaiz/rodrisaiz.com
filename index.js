@@ -130,7 +130,6 @@ return `<path d="${d}" />`;
 }
 
 //Footer phrase
-
 const today = new Date();
 
 let year = today.getUTCFullYear();
