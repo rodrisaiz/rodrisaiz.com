@@ -1,4 +1,4 @@
-const words = ["Hello", "Hola", "Salut", "Kaixo", "Hallo", "你好", "Ciao ", "Hej ", "مرحبًا", "Hei ", "Olá ", "नमस्ते", "Aloha", ];
+const words = ["Hello", "Hola", "Salut", "Kaixo", "Hallo", "你好", "Ciao ", "Hej ", "مرحبًا", "Hei ", "Olá ", "नमस्ते","أهلا","Hoi", ];
 let i = 0;
 let j = 0;
 let currentWord = "";
@@ -128,3 +128,50 @@ let points = pointsNew ? pointsNew : [
 d = points.reduce((acc, point, i, a) => i === 0 ? `M ${point[0]},${point[1]}` : `${acc} ${getPoint(point, i, a, smoothing)}`, '');
 return `<path d="${d}" />`;
 }
+
+//Footer phrase
+
+const today = new Date();
+
+let year = today.getUTCFullYear();
+
+console.log(year);
+
+let menssage = `&#169; ${year} Rodri Saiz™. All rights reserved... the left's also. This page works without cookies. 🙃`;
+document.getElementById("footerPhrase").innerHTML = menssage;
+
+//PDF downloader
+
+function downloadPDF(pdfURL, pdfFilename) {
+    let enlace = document.createElement("a");
+    enlace.href = pdfURL;
+    enlace.download = pdfFilename;
+    document.body.appendChild(enlace);
+    enlace.click();
+    document.body.removeChild(enlace);
+}
+
+document.getElementById("descargarPDF").addEventListener("click", function (event) {
+    event.preventDefault();
+    downloadPDF("https://rodrisaiz.github.io/rodrisaiz.com/PDF/rodrisaizcv.pdf", "rodrisaizcv.pdf");
+});
+
+//Visits counter
+
+function visitCounter() {
+    let visits = localStorage.getItem("visitsCounter");
+
+    if (visits === null) {
+        visits = 1;
+    } else {
+        visits = parseInt(visits) + 1;
+    }
+
+    localStorage.setItem("visitsCounter", visits);
+
+    
+    document.getElementById("counter").textContent = `Visitor number:  ${visits}`;
+}
+
+document.addEventListener("DOMContentLoaded", visitCounter);
+

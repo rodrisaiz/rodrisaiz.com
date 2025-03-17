@@ -127,7 +127,7 @@ h2{
 }
 
 .languageItem{
-    height: 400px;
+    height: 500px;
     width: 380px;
     border: 1px solid #ffffff30;
     border-radius: 10px;
@@ -159,21 +159,13 @@ h2{
 
 }
 
-/*test*/
-/*border-bottom: 1px solid #fff;*/
-
    
 .allLang{
     display: grid;
     grid-template-columns: repeat( 3, minmax(80px, 1fr));
-    grid-template-rows: repeat( 3, minmax(90px, 1fr));
+    grid-template-rows: repeat( 6, minmax(90px, 1fr));
     grid-column-gap: 15px;
     grid-row-gap: 0px;
-
-    /*
-    height: 400px;
-    width: 350px;
-    */
     padding-top: 20px;
     margin: 15px;
 
@@ -229,41 +221,20 @@ h2{
   }
 
 
+/*Languages custome*/
 
 
-
-/*end test*/
-/*Language working
-
-.allLang{
-    display: grid;
-    grid-template-columns: repeat( 3, minmax(80px, 1fr));
-    grid-template-rows: repeat( 3, minmax(90px, 1fr));
-    grid-column-gap: 15px;
-    grid-row-gap: 0px;
-
-    /*
-    height: 400px;
-    width: 350px;
-    *//*
-    padding-top: 20px;
-    margin: 15px;
-
-
- 
-  }
-  
-  
-  .langDiv{
+   
+ .langDiv2{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     padding: 5px;
     align-content: center;
     justify-content: center;
   }
   
-  .langTitle{
+  .langTitle2{
     opacity: 0;
     align-self: center;
     display:flex;
@@ -273,7 +244,7 @@ h2{
     scale: 0;
   }
 
-  .langDiv:hover .langTitle{
+  .langDiv2:hover .langTitle2{
     color: white;
     font-size: 20px;
     align-self: center;
@@ -285,22 +256,44 @@ h2{
     transition-duration: 1s;
   }
   
-  .langImg{
-    width: 60px;
-    height: 60px;
+  .langImg2{
+   
     transition-property: all;
     transition-duration: 0.8s;
     scale: 1;
    
   }
   
-  .langDiv:hover .langImg{
+  .langDiv2:hover .langImg2{
     opacity: 0;
     scale: 0;
   }
 
+.size-php{
+    width: 80px;
+    height: 40px;
+}
+ 
+.size-mongo{
+    width: 30px;
+    height: 60px;
+}
 
-  /*End of language working*/
+.size-github{
+    width: 56px;
+    height: 55px;
+}
+
+.size-boostrap{
+    width: 60px;
+    height: 60px;
+}
+
+
+.size-tailwind{
+    width: 100px;
+    height: 60px;
+}
 
 
 
@@ -348,7 +341,6 @@ h2{
     border: none;
     background-color: transparent;
     position: relative;
-    /* overflow: hidden; */
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
@@ -406,7 +398,6 @@ h2{
     border: none;
     background-color: transparent;
     position: relative;
-    /* overflow: hidden; */
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
@@ -464,7 +455,6 @@ h2{
     border: none;
     background-color: transparent;
     position: relative;
-    /* overflow: hidden; */
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
@@ -522,7 +512,6 @@ h2{
     border: none;
     background-color: transparent;
     position: relative;
-    /* overflow: hidden; */
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
@@ -590,24 +579,15 @@ h2{
 
 
 .button {
-    /*--text: #fff;
-    --arrow: #fff;
-    --checkmark: #fff;*/
     --checkmark: white;
-    /*--shadow: rgba(10, 22, 50, .24);*/
-    /*--shadow: rgba(255, 255, 255, 0.103);*/
-    /*test*/
     border: 2px solid white;
     width: 238px;
    
-    /*end test*/
     display: flex;
     overflow: hidden;
     text-decoration: none;
-    /* -webkit-radial-gradient(white, black);*/
     background: var(--background);
     border-radius: 10px;
-    /*box-shadow: 0 2px 8px -1px var(--shadow);*/
     transition: transform .2s ease, box-shadow .2s ease;
     &:active {
         transform: scale(.95);
@@ -791,60 +771,6 @@ h2{
     }
 }
 
-/*
-html {
-    box-sizing: border-box;
-    /*-webkit-font-smoothing: antialiased;*//*
-}
-
-* {
-    box-sizing: inherit;
-    &:before,
-    &:after {
-        box-sizing: inherit;
-    }
-}
-
-/* Center & dribbble
-
-body {
-    min-height: 100vh;
-    display: flex;
-    font-family: 'Roboto', Arial;
-    justify-content: center;
-    align-items: center;
-    background: #E4ECFA;
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        & > div {
-            flex-basis: 100%;
-            width: 0;
-        }
-        .button {
-            margin: 16px;
-            @media(max-width: 400px) {
-                margin: 12px;
-            }
-        }
-    }
-    .dribbble {
-        position: fixed;
-        display: block;
-        right: 20px;
-        bottom: 20px;
-        img {
-            display: block;
-            height: 28px;
-        }
-    }
-}
-
-
-
-
-  /**/
 
 /*footer*/
 
