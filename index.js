@@ -162,23 +162,3 @@ document.getElementById("descargarPDF").addEventListener("click", function (even
     downloadPDF("https://rodrisaiz.github.io/rodrisaiz.com/PDF/rodrisaizcv.pdf", "rodrisaizcv.pdf");
 });
 
-
-//Visits counter
-
-function visitCounter() {
-    let visits = localStorage.getItem("visitsCounter");
-
-    if (visits === null) {
-        visits = 1;
-    } else {
-        visits = parseInt(visits) + 1;
-    }
-
-    localStorage.setItem("visitsCounter", visits);
-
-    
-    document.getElementById("counter").textContent = `Visitor number:  ${visits}`;
-}
-
-document.addEventListener("DOMContentLoaded", visitCounter);
-
