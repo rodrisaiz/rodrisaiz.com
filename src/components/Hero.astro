@@ -1,0 +1,330 @@
+---
+import profile from "../assets/profile/rodrisaiz.webp";
+import { Image } from "astro:assets";
+---
+
+<section class="hero">
+
+  <!-- PHOTO -->
+  <div class="hero-image">
+    <Image
+      src={profile}
+      alt="Rodri Saiz"
+      width={500}
+      height={500}
+      format="webp"
+      quality={90}
+      loading="eager"
+    />
+
+    <div class="image-overlay"></div>
+  </div>
+
+  <!-- TEXT -->
+  <div class="hero-content">
+
+    <h1 class="greeting">
+      <span id="changing-text">Hello</span>
+    </h1>
+
+    <h1 class="name">
+      I'm
+      <a href="https://www.linkedin.com/in/rodrisaiz/" target="_blank"> Rodri Saiz</a>
+    </h1>
+
+    <h1 class="subtitle">
+      Your next software engineer
+    </h1>
+
+  </div>
+
+</section>
+
+<script>
+  const words = [
+    "Hello",
+    "Hola",
+    "Salut",
+    "Kaixo",
+    "Hallo",
+    "你好",
+    "Ciao",
+    "Hej",
+    "مرحبًا",
+    "Hei",
+    "Olá",
+    "नमस्ते",
+    "أهلا",
+    "Hoi"
+  ];
+
+  const text = document.getElementById("changing-text");
+
+  let index = 0;
+
+  setInterval(() => {
+
+    if (!text) return;
+
+    text.style.opacity = "0";
+
+    setTimeout(() => {
+
+      index = (index + 1) % words.length;
+
+      text.textContent = words[index];
+
+      text.style.opacity = "1";
+
+    }, 250);
+
+  }, 2000);
+</script>
+
+<style>
+
+  .hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    align-items: center;
+    justify-items: center;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: clamp(1rem, 4vw, 4rem);
+
+    gap: clamp(2rem, 5vw, 5rem);
+
+    overflow-x: hidden;
+  }
+
+  /* =========================
+      IMAGE
+  ========================= */
+
+  .hero-image {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+
+    max-width: clamp(280px, 40vw, 520px);
+
+    height: auto;
+
+    border-radius: 2rem;
+
+    object-fit: cover;
+
+    display: block;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  .image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 2rem;
+
+    background: rgba(0, 0, 0, 0.1);
+
+    pointer-events: none;
+  }
+
+  /* =========================
+      CONTENT
+  ========================= */
+
+  .hero-content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: clamp(1rem, 2vw, 2rem);
+
+    width: 100%;
+    max-width: 650px;
+
+    color: #fff;
+
+    z-index: 2;
+  }
+
+  .greeting {
+    margin: 0;
+
+    font-size: clamp(4.5rem, 10vw, 8rem);
+
+    line-height: 0.95;
+
+    font-weight: 800;
+  }
+
+  #changing-text {
+    display: inline-block;
+
+    min-height: 1em;
+
+    width: 10ch;
+
+    transition: opacity 0.25s ease;
+  }
+
+  .name {
+    margin: 0;
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    font-weight: 700;
+  }
+
+  .name a {
+    color: #fff;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+  }
+
+  .name a:hover {
+    color: #0097d3;
+  }
+
+  .subtitle {
+    margin: 0;
+
+    font-size: clamp(2rem, 3vw, 3rem);
+
+    font-weight: 700;
+  }
+
+  /* =========================
+      LARGE SCREENS
+      Reduce gap > 1441px
+  ========================= */
+
+  @media (min-width: 1441px) {
+
+    .hero {
+      gap: 2rem;
+    }
+
+  }
+
+  /* =========================
+      TABLET / MOBILE
+  ========================= */
+
+  @media (max-width: 900px) {
+
+    .hero {
+      grid-template-columns: 1fr;
+
+      gap: 2rem;
+
+      padding: 2rem 1.5rem;
+
+      text-align: center;
+    }
+
+    .hero-image {
+      display: none;
+    }
+
+    .hero-content {
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      min-height: 100vh;
+    }
+
+    .greeting {
+      font-size: clamp(4.5rem, 20vw, 7rem);
+
+      line-height: 1;
+    }
+
+    .name {
+      font-size: clamp(2rem, 9vw, 4rem);
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 5vw, 2.2rem);
+    }
+
+    #changing-text {
+      width: 10ch;
+
+      text-align: center;
+    }
+
+  }
+
+  /* =========================
+      MOBILE L
+  ========================= */
+
+  @media (max-width: 426px) {
+
+    .greeting {
+      font-size: clamp(6rem, 22vw, 8rem);
+
+      margin-bottom: 2rem;
+    }
+
+    .name {
+      font-size: clamp(3rem, 10vw, 4.5rem);
+    }
+
+    .subtitle {
+      font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    #changing-text {
+      width: auto;
+    }
+
+  }
+
+  /* =========================
+      SMALL MOBILE
+  ========================= */
+
+  @media (max-width: 376px) {
+
+    .greeting {
+      font-size: clamp(5rem, 20vw, 7rem);
+
+      margin-bottom: 1.5rem;
+    }
+
+    .name {
+      font-size: clamp(2.5rem, 9vw, 4rem);
+    }
+
+  }
+
+</style>

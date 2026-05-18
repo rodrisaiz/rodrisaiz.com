@@ -1,10 +1,10 @@
 ---
-//import "../styles/global.css";
+import "../styles/global.css";
 //import Navbar from "./Navbar.astro";
 
 const {
   title = "Rodri Saiz portfolio",
-  description = "Professional portfolio of  Rodrigo Saiz",
+  description = "Professional portfolio of Rodri Saiz",
   image = "../assets/general/rodrisaiz.gif",
   canonical = Astro.url.href
 } = Astro.props;
@@ -58,7 +58,6 @@ const {
 
 <body>
 
-    <h1>Welcome to my new portfolio</h1>
     <main>
       <slot />
     </main>
