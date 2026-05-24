@@ -3,9 +3,8 @@ const { tools = [], speedMs = 100000 } = Astro.props;
 ---
 
 <section class="skills">
-  <!-- 
-    -->
-    <h1 class="skills-title">SKILLS</h1>
+
+  <h1 class="skills-title">SKILLS</h1>
   <div class="skills-mask">
     <div class="skills-track-wrapper">
       
@@ -21,7 +20,8 @@ const { tools = [], speedMs = 100000 } = Astro.props;
               width="40"
               height="40"
               class="skill-logo"
-            />
+              loading="lazy"
+            />        
           </div>
 
           <span class="skill-tooltip">
