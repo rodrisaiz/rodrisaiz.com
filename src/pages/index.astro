@@ -1,6 +1,38 @@
 ---
 import Layout from "../components/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Skills from '../components/Skills.astro';
+
+import reactIcon from '../../public/logos/react.svg?raw';
+import pythonIcon from '../../public/logos/python.svg?raw';
+import dockerIcon from '../../public/logos/docker.svg?raw';
+
+
+const skills = [
+  {
+    icon: reactIcon,
+    title: 'Frontend Development',
+    description:
+      'I build modern, responsive, and high-performance interfaces focused on UX and clean architecture. Currently, I lead the frontend development of a new product at my company.',
+    tags: ['Astro', 'Bootstrap', 'CSS','HTML5', 'Javascript', 'React', 'Tailwindcss','Vue']
+  },
+
+  {
+    icon: pythonIcon,
+    title: 'Backend Development',
+    description:
+      'I develop scalable and reliable backend systems, including high-concurrency APIs, data transfer services, and eCommerce solutions.',
+    tags: ['Laravel', 'Mongo DB', 'Myslq', 'PHP', 'Postgresql', 'Postman', 'Phyton', 'Redis']
+  },
+
+  {
+    icon: dockerIcon,
+    title: 'Devops Development',
+    description:
+      'I work on automation, infrastructure optimization, and deployment workflows. As part of the implementation team, I contribute to upgrades, scripting, and deployment optimization.',
+    tags: ['Bash', 'Docker', 'Git', 'Github', 'Gitlab', 'Linux', 'Rundeck' ]
+  }
+];
 
 ---
 
@@ -10,9 +42,11 @@ import Hero from "../components/Hero.astro";
 >
 
 <Hero />
+<Skills
+    skills={skills}
+  />
 
 <section class="hero">
-
 </section>
 
 <section>
