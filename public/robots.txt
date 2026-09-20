@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /meet
+
+Sitemap: https://rodrisaiz.com/sitemap.xml

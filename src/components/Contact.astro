@@ -49,7 +49,7 @@ const linktreeIcon = `<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.o
 
     <form
       class="contact-form"
-      action="mailto:rodrisaiz@icloud.com"
+      id="contact-form"
       method="post"
       enctype="text/plain"
     >
@@ -93,6 +93,17 @@ const linktreeIcon = `<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.o
     </form>
   </div>
 </section>
+
+<script>
+  // Assembled at runtime so the address isn't plain text in the HTML source.
+  const form = document.getElementById('contact-form');
+  const user = ['r', 'o', 'd', 'r', 'i', 's', 'a', 'i', 'z'].join('');
+  const domain = ['i', 'c', 'l', 'o', 'u', 'd', '.', 'c', 'o', 'm'].join('');
+
+  if (form instanceof HTMLFormElement) {
+    form.action = `mailto:${user}@${domain}`;
+  }
+</script>
 
 <style>
   .contact-card {

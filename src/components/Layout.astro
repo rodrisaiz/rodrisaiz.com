@@ -4,11 +4,13 @@ import DockNav from "./DockNav.astro";
 import Footer from "./Footer.astro";
 
 const {
-  title = "Rodri Saiz portfolio",
-  description = "Professional portfolio of Rodri Saiz",
-  image = "../assets/general/rodrisaiz.gif",
+  title = "Rodri Saiz | Software Engineer",
+  description = "Rodri Saiz (Rodrigo Saiz) is a software engineer specializing in frontend, backend, and DevOps. Explore my projects, skills, and career journey.",
+  image = "/og-image.jpg",
   canonical = Astro.url.href
 } = Astro.props;
+
+const imageUrl = new URL(image, Astro.url).href;
 ---
 
 <!doctype html>
@@ -22,6 +24,8 @@ const {
   <title>{title}</title>
 
   <meta name="description" content={description} />
+  <meta name="author" content="Rodri Saiz" />
+  <meta name="robots" content="index, follow" />
 
   <link rel="canonical" href={canonical} />
 
@@ -31,14 +35,15 @@ const {
   <meta property="og:type" content="website" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
+  <meta property="og:image" content={imageUrl} />
   <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content="Rodri Saiz" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={image} />
+  <meta name="twitter:image" content={imageUrl} />
 
   <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +53,10 @@ const {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Rodri Saiz",
+    "alternateName": ["Rodrigo Saiz"],
     "url": "https://rodrisaiz.com",
+    "image": imageUrl,
+    "description": "Rodri Saiz (Rodrigo Saiz) is a software engineer specializing in frontend, backend, and DevOps.",
     "jobTitle": "Software Engineer",
     "sameAs": [
       "https://github.com/rodrisaiz",

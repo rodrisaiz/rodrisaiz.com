@@ -1,94 +1,94 @@
 # rodrisaiz.com
 
-Portfolio profesional de Rodri Saiz, construido con [Astro](https://astro.build).
+Rodri Saiz's professional portfolio, built with [Astro](https://astro.build).
 
-## 🚀 Estructura del proyecto
+## 🚀 Project structure
 
 ```text
 /
-├── public/                 # Assets estáticos (favicon, logos, etc.)
+├── public/                 # Static assets (favicon, logos, etc.)
 ├── src/
-│   ├── assets/              # Imágenes y datos usados por los componentes
-│   ├── components/          # Componentes Astro (Layout, Hero, Skills, Carousel, Work...)
-│   ├── pages/                # Rutas del sitio (index.astro, ...)
-│   └── styles/               # CSS global
+│   ├── assets/              # Images and data used by the components
+│   ├── components/          # Astro components (Layout, Hero, Skills, Carousel, Work...)
+│   ├── pages/                # Site routes (index.astro, ...)
+│   └── styles/               # Global CSS
 ├── docker/
-│   └── nginx.conf            # Configuración de nginx para producción
-├── Dockerfile                 # Build multi-stage (dev / build / prod)
-├── docker-compose.yml          # Entorno de desarrollo
-└── docker-compose.prod.yml      # Entorno de producción
+│   └── nginx.conf            # nginx configuration for production
+├── Dockerfile                 # Multi-stage build (dev / build / prod)
+├── docker-compose.yml          # Development environment
+└── docker-compose.prod.yml      # Production environment
 ```
 
-Astro busca ficheros `.astro` o `.md` en `src/pages/`, cada uno se expone como una ruta según su nombre de fichero.
+Astro looks for `.astro` or `.md` files in `src/pages/`; each one is exposed as a route based on its file name.
 
-## 🧞 Comandos con npm
+## 🧞 npm commands
 
-Requiere Node.js `>=22.12.0`.
+Requires Node.js `>=22.12.0`.
 
-| Comando                   | Acción                                            |
+| Command                   | Action                                            |
 | :------------------------ | :------------------------------------------------- |
-| `npm install`              | Instala las dependencias                            |
-| `npm run dev`               | Levanta el servidor de desarrollo en `localhost:4321` |
-| `npm run build`              | Compila el sitio a `./dist/`                          |
-| `npm run preview`             | Sirve el build en local antes de desplegar              |
-| `npm run astro ...`            | Ejecuta comandos de la CLI de Astro (`astro add`, `astro check`) |
+| `npm install`              | Installs dependencies                                |
+| `npm run dev`               | Starts the dev server at `localhost:4321`             |
+| `npm run build`              | Builds the site to `./dist/`                           |
+| `npm run preview`             | Serves the build locally before deploying               |
+| `npm run astro ...`            | Runs Astro CLI commands (`astro add`, `astro check`)    |
 
 ## 🐳 Docker
 
-El proyecto está dockerizado con dos entornos independientes, pensados también para poder añadir en el futuro
-nuevos servicios (por ejemplo un panel de administración) sin tener que rehacer la configuración:
+The project is dockerized with two independent environments, also designed so future
+services (e.g. a small admin panel) can be added without reworking the setup:
 
-- **dev**: servidor de desarrollo de Astro con hot reload, montando el código como volumen.
-- **prod**: build estático servido por nginx, sin dependencias de Node en tiempo de ejecución.
+- **dev**: Astro dev server with hot reload, mounting the source code as a volume.
+- **prod**: static build served by nginx, with no Node runtime dependency.
 
-### Desarrollo (local)
+### Development (local)
 
 ```bash
-# Construir e iniciar el entorno de desarrollo (http://localhost:4321)
+# Build and start the development environment (http://localhost:4321)
 docker compose up --build
 
-# Iniciar en segundo plano
+# Start in the background
 docker compose up -d
 
-# Parar los contenedores (mantiene la imagen y los volúmenes)
+# Stop the containers (keeps the image and volumes)
 docker compose stop
 
-# Parar y eliminar contenedores y red (mantiene la imagen)
+# Stop and remove containers and network (keeps the image)
 docker compose down
 
-# Destruir todo: contenedores, red, volúmenes e imágenes del proyecto
+# Tear down everything: containers, network, volumes, and images for this project
 docker compose down --rmi all --volumes --remove-orphans
 ```
 
-### Producción
+### Production
 
 ```bash
-# Construir e iniciar el entorno de producción (http://localhost:80)
+# Build and start the production environment (http://localhost:80)
 docker compose -f docker-compose.prod.yml up --build -d
 
-# Ver logs
+# View logs
 docker compose -f docker-compose.prod.yml logs -f
 
-# Parar los contenedores
+# Stop the containers
 docker compose -f docker-compose.prod.yml stop
 
-# Parar y eliminar contenedores y red
+# Stop and remove containers and network
 docker compose -f docker-compose.prod.yml down
 
-# Destruir todo: contenedores, red e imágenes del proyecto
+# Tear down everything: containers, network, and images for this project
 docker compose -f docker-compose.prod.yml down --rmi all --remove-orphans
 ```
 
-### Solo Docker (sin compose)
+### Docker only (no compose)
 
 ```bash
-# Build de la imagen de desarrollo
+# Build the development image
 docker build --target dev -t rodrisaiz-com:dev .
 
-# Build de la imagen de producción
+# Build the production image
 docker build --target prod -t rodrisaiz-com:prod .
 ```
 
-## 👀 Saber más
+## 👀 Learn more
 
-Consulta la [documentación de Astro](https://docs.astro.build) o únete a su [servidor de Discord](https://astro.build/chat).
+Check out the [Astro documentation](https://docs.astro.build) or join their [Discord server](https://astro.build/chat).
