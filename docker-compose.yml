@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true

@@ -1,0 +1,84 @@
+---
+import Layout from "../components/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Skills from '../components/Skills.astro';
+import Journey from '../components/Journey.astro';
+import Work from '../components/Work.astro';
+import Contact from '../components/Contact.astro';
+
+import reactIcon from '../../public/logos/react.svg?raw';
+import pythonIcon from '../../public/logos/python.svg?raw';
+import dockerIcon from '../../public/logos/docker.svg?raw';
+
+
+const skills = [
+  {
+    icon: reactIcon,
+    title: 'Frontend Development',
+    description:
+      'I build modern, responsive, and high-performance interfaces focused on UX and clean architecture. Currently, I lead the frontend development of a new product at my company.',
+    tags: ['Astro', 'Bootstrap', 'CSS','HTML5', 'Javascript', 'React', 'Tailwindcss','Vue']
+  },
+
+  {
+    icon: pythonIcon,
+    title: 'Backend Development',
+    description:
+      'I develop scalable and reliable backend systems, including high-concurrency APIs, data transfer services, and eCommerce solutions.',
+    tags: ['Laravel', 'Mongo DB', 'MySQL', 'PHP', 'Postgresql', 'Postman', 'Python', 'Redis']
+  },
+
+  {
+    icon: dockerIcon,
+    title: 'Devops Development',
+    description:
+      'I work on automation, infrastructure optimization, and deployment workflows. As part of the implementation team, I contribute to upgrades, scripting, and deployment optimization.',
+    tags: ['Bash', 'Docker', 'Git', 'Github', 'Gitlab', 'Linux', 'Rundeck' ]
+  }
+];
+
+---
+
+<Layout
+  title="Rodri Saiz | Software Engineer"
+  description="Rodri Saiz's professional portfolio as software engineer"
+>
+
+<Hero />
+<Skills
+    skills={skills}
+  />
+
+<Journey>
+  <Work
+    date="January 2024"
+    title="Lancé mi producto"
+    type="milestone"
+    description="Lanzamiento exitoso con 10k usuarios"
+    skills={["React", "Astro", "TypeScript"]}
+  >
+    <p>
+      Built and shipped the product end to end, from the first line of code
+      to a production release that reached 10k users. A great lesson in
+      taking an idea all the way to something real people use.
+    </p>
+  </Work>
+
+  <Work
+    date="2022 - Present"
+    title="Frontend lead on a new product"
+    type="learning"
+    description="Leading the frontend development of a new product, going deeper into architecture decisions and mentoring."
+    skills={["Astro", "React", "TypeScript"]}
+  >
+    <p>
+      Taking on technical leadership meant spending less time writing every
+      line myself and more time on architecture decisions, code reviews, and
+      helping the rest of the team grow.
+    </p>
+  </Work>
+</Journey>
+
+<Contact />
+
+</Layout>

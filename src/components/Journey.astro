@@ -1,0 +1,89 @@
+---
+const cvHref = "/files/rodrisaiz-cv.pdf";
+---
+
+<section class="journey" id="journey">
+  <div class="journey-header">
+    <h2 class="journey-title">Journey</h2>
+
+    <a class="cv-btn cv-btn-below" href={cvHref} download="Rodri-Saiz-CV.pdf">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 3v12m0 0-4-4m4 4 4-4M4 19h16" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      Download CV
+    </a>
+
+    <p class="journey-subtitle">
+      A timeline of the milestones, lessons, and turning points that have
+      shaped my path as an engineer.
+    </p>
+  </div>
+
+  <div class="journey-list">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .journey {
+    max-width: 900px;
+  }
+
+  .journey-header {
+    margin-bottom: 3rem;
+  }
+
+  .journey-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+
+    margin-bottom: 1rem;
+
+    background: linear-gradient(90deg, #ffffff, #a1a1a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+
+    padding: 0.625rem 1.25rem;
+    border-radius: 999px;
+    border: 1px solid var(--primary);
+
+    color: var(--primary);
+    font-size: 0.9375rem;
+    font-weight: 600;
+
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+
+  .cv-btn:hover {
+    background: var(--primary);
+    color: #04121c;
+    transform: translateY(-2px);
+  }
+
+  .cv-btn-below {
+    margin-bottom: 1.5rem;
+  }
+
+  .journey-subtitle {
+    max-width: 55ch;
+
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .journey-list :global(.timeline-entry:last-child .timeline-line) {
+    display: none;
+  }
+
+  .journey-list :global(.timeline-entry:last-child .timeline-content) {
+    padding-bottom: 0;
+  }
+</style>

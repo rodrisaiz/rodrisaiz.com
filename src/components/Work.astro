@@ -1,0 +1,294 @@
+---
+interface Props {
+  date: string;
+  title: string;
+  type: 'milestone' | 'learning' | 'transition';
+  description: string;
+  skills?: string[];
+}
+
+const { date, title, type, description, skills = [] } = Astro.props;
+
+const typeLabels = {
+  milestone: 'Milestone',
+  learning: 'Learning',
+  transition: 'Transition'
+};
+---
+
+<article class="timeline-entry">
+  <div class="timeline-marker">
+    <div class="timeline-dot" data-type={type}></div>
+    <div class="timeline-line"></div>
+  </div>
+
+  <div class="timeline-content">
+    <div class="timeline-header">
+      <time class="timeline-date">{date}</time>
+
+      <span class="timeline-type" data-type={type}>
+        {typeLabels[type]}
+      </span>
+    </div>
+
+    <h3 class="timeline-title">{title}</h3>
+
+    <p class="timeline-description">
+      {description}
+    </p>
+
+    {skills.length > 0 && (
+      <div class="timeline-skills">
+        <span class="skills-label">Skills:</span>
+
+        <ul class="skills-list">
+          {skills.map((skill) => (
+            <li class="skill-tag">{skill}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <details class="timeline-details">
+      <summary class="expand-toggle">
+        <span class="expand-text">
+          <span class="text-closed">Read more</span>
+          <span class="text-open">Show less</span>
+        </span>
+
+        <svg
+          class="expand-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </summary>
+
+      <div class="timeline-body-content prose">
+        <slot />
+      </div>
+    </details>
+  </div>
+</article>
+
+<style>
+  .timeline-entry {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1.5rem;
+  }
+
+  .timeline-marker {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-dot {
+    flex-shrink: 0;
+
+    width: 1rem;
+    height: 1rem;
+
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+
+    background: var(--primary);
+  }
+
+  .timeline-dot[data-type="milestone"] {
+    background: #3b82f6;
+  }
+
+  .timeline-dot[data-type="learning"] {
+    background: #10b981;
+  }
+
+  .timeline-dot[data-type="transition"] {
+    background: #f59e0b;
+  }
+
+  .timeline-line {
+    flex: 1;
+    width: 2px;
+    margin-top: 0.25rem;
+
+    background: var(--border);
+  }
+
+  .timeline-content {
+    padding-bottom: 3rem;
+  }
+
+  .timeline-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-date {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  .timeline-type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid currentColor;
+
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .timeline-type[data-type="milestone"] {
+    color: #3b82f6;
+  }
+
+  .timeline-type[data-type="learning"] {
+    color: #10b981;
+  }
+
+  .timeline-type[data-type="transition"] {
+    color: #f59e0b;
+  }
+
+  .timeline-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-description {
+    color: var(--text);
+    opacity: 0.85;
+    line-height: 1.75;
+  }
+
+  .timeline-skills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-top: 1rem;
+  }
+
+  .skills-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    list-style: none;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+  }
+
+  .timeline-details {
+    margin-top: 1rem;
+  }
+
+  .timeline-details summary {
+    list-style: none;
+  }
+
+  .timeline-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .expand-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .text-open {
+    display: none;
+  }
+
+  .timeline-details[open] .text-closed {
+    display: none;
+  }
+
+  .timeline-details[open] .text-open {
+    display: inline;
+  }
+
+  .expand-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .timeline-details[open] .expand-icon {
+    transform: rotate(180deg);
+  }
+
+  .timeline-body-content {
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .timeline-details .timeline-body-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .timeline-details[open] .timeline-body-content {
+    grid-template-rows: 1fr;
+  }
+
+  .timeline-details .timeline-body-content > * {
+    min-height: 0;
+  }
+
+  @media (max-width: 480px) {
+    .timeline-entry {
+      grid-template-columns: 1.25rem 1fr;
+      gap: 1rem;
+    }
+
+    .timeline-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>
