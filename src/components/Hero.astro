@@ -1,10 +1,9 @@
 ---
-//import profile from "../assets/profile/rodrisaiz.webp";
 import profile from "../assets/profile/rodrisaiz.jpg";
 import { Image } from "astro:assets";
 ---
 
-<section class="hero">
+<section class="hero" id="home">
 
   <!-- PHOTO -->
   <div class="hero-image">
@@ -95,7 +94,7 @@ import { Image } from "astro:assets";
     align-items: center;
     justify-items: center;
 
-    max-width: 1400px;
+    max-width: 1600px;
 
     margin: 0 auto;
 
@@ -123,7 +122,7 @@ import { Image } from "astro:assets";
   .hero-image img {
     width: 100%;
 
-    max-width: clamp(280px, 40vw, 520px);
+    max-width: clamp(280px, 42vw, 620px);
 
     height: auto;
 
@@ -166,7 +165,7 @@ import { Image } from "astro:assets";
     gap: clamp(1rem, 2vw, 2rem);
 
     width: 100%;
-    max-width: 650px;
+    max-width: 760px;
 
     color: #fff;
 
@@ -176,7 +175,7 @@ import { Image } from "astro:assets";
   .greeting {
     margin: 0;
 
-    font-size: clamp(4.5rem, 10vw, 8rem);
+    font-size: clamp(4.5rem, 10vw, 9.5rem);
 
     line-height: 0.95;
 
@@ -196,7 +195,7 @@ import { Image } from "astro:assets";
   .name {
     margin: 0;
 
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
 
     font-weight: 700;
   }
@@ -216,20 +215,36 @@ import { Image } from "astro:assets";
   .subtitle {
     margin: 0;
 
-    font-size: clamp(2rem, 3vw, 3rem);
+    font-size: clamp(2rem, 3vw, 3.5rem);
 
     font-weight: 700;
   }
 
   /* =========================
       LARGE SCREENS
-      Reduce gap > 1441px
+      Reduce gap, scale up photo and text further
   ========================= */
 
   @media (min-width: 1441px) {
 
     .hero {
       gap: 2rem;
+    }
+
+    .hero-image img {
+      max-width: 680px;
+    }
+
+    .greeting {
+      font-size: 10rem;
+    }
+
+    .name {
+      font-size: 6rem;
+    }
+
+    .subtitle {
+      font-size: 3.75rem;
     }
 
   }

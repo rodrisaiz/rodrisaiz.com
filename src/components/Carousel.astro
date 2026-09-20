@@ -8,7 +8,7 @@ const { tools = [], speedMs = 100000 } = Astro.props;
   <div class="skills-mask">
     <div class="skills-track-wrapper">
       
-  <div class="skills-track">
+  <div class="skills-track" style={`--speed: ${speedMs}ms`}>
 
       {[...tools, ...tools].map((tool) => (
         <div class="skill-item">
@@ -102,6 +102,10 @@ const { tools = [], speedMs = 100000 } = Astro.props;
     transition: transform 0.3s ease;
   }
 
+  .skill-item:hover {
+    transform: scale(1.2);
+  }
+
   .skill-logo-wrapper {
 
     width: 45px;
@@ -131,12 +135,26 @@ const { tools = [], speedMs = 100000 } = Astro.props;
     opacity: 1;
   }
 
-  .skill-name {
+  .skill-tooltip {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--color-text-muted, #b0b0b0);
 
-    transition: color 0.3s ease;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.25s ease;
+
+    margin-top: 0.5rem;
+    pointer-events: none;
+  }
+
+  .skill-item:hover .skill-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .skills-track:hover {
+    animation-play-state: paused;
   }
 
   @keyframes skills-scroll {
@@ -154,40 +172,4 @@ const { tools = [], speedMs = 100000 } = Astro.props;
       min-width: 180px;
     }
   }
-
-.skills-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-  transform: translateX(0);
-}
-
-.skill-item:hover ~ .skills-track {
-  animation-play-state: paused;
-}
-
-.skill-tooltip {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text-muted, #b0b0b0);
-
-  opacity: 0;
-  transform: translateY(8px);
-  transition: all 0.25s ease;
-
-  margin-top: 0.5rem;
-  pointer-events: none;
-}
-
-.skill-item:hover .skill-tooltip {
-  opacity: 1;
-  transform: translateY(0);
-}
-.skill-item {
-  transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-  transform: scale(1.20);
-}
 </style>

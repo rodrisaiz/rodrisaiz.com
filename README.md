@@ -1,43 +1,94 @@
-# Astro Starter Kit: Minimal
+# rodrisaiz.com
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Portfolio profesional de Rodri Saiz, construido con [Astro](https://astro.build).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Estructura del proyecto
 
 ```text
 /
-├── public/
+├── public/                 # Assets estáticos (favicon, logos, etc.)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/              # Imágenes y datos usados por los componentes
+│   ├── components/          # Componentes Astro (Layout, Hero, Skills, Carousel, Work...)
+│   ├── pages/                # Rutas del sitio (index.astro, ...)
+│   └── styles/               # CSS global
+├── docker/
+│   └── nginx.conf            # Configuración de nginx para producción
+├── Dockerfile                 # Build multi-stage (dev / build / prod)
+├── docker-compose.yml          # Entorno de desarrollo
+└── docker-compose.prod.yml      # Entorno de producción
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro busca ficheros `.astro` o `.md` en `src/pages/`, cada uno se expone como una ruta según su nombre de fichero.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🧞 Comandos con npm
 
-Any static assets, like images, can be placed in the `public/` directory.
+Requiere Node.js `>=22.12.0`.
 
-## 🧞 Commands
+| Comando                   | Acción                                            |
+| :------------------------ | :------------------------------------------------- |
+| `npm install`              | Instala las dependencias                            |
+| `npm run dev`               | Levanta el servidor de desarrollo en `localhost:4321` |
+| `npm run build`              | Compila el sitio a `./dist/`                          |
+| `npm run preview`             | Sirve el build en local antes de desplegar              |
+| `npm run astro ...`            | Ejecuta comandos de la CLI de Astro (`astro add`, `astro check`) |
 
-All commands are run from the root of the project, from a terminal:
+## 🐳 Docker
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+El proyecto está dockerizado con dos entornos independientes, pensados también para poder añadir en el futuro
+nuevos servicios (por ejemplo un panel de administración) sin tener que rehacer la configuración:
 
-## 👀 Want to learn more?
+- **dev**: servidor de desarrollo de Astro con hot reload, montando el código como volumen.
+- **prod**: build estático servido por nginx, sin dependencias de Node en tiempo de ejecución.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Desarrollo (local)
+
+```bash
+# Construir e iniciar el entorno de desarrollo (http://localhost:4321)
+docker compose up --build
+
+# Iniciar en segundo plano
+docker compose up -d
+
+# Parar los contenedores (mantiene la imagen y los volúmenes)
+docker compose stop
+
+# Parar y eliminar contenedores y red (mantiene la imagen)
+docker compose down
+
+# Destruir todo: contenedores, red, volúmenes e imágenes del proyecto
+docker compose down --rmi all --volumes --remove-orphans
+```
+
+### Producción
+
+```bash
+# Construir e iniciar el entorno de producción (http://localhost:80)
+docker compose -f docker-compose.prod.yml up --build -d
+
+# Ver logs
+docker compose -f docker-compose.prod.yml logs -f
+
+# Parar los contenedores
+docker compose -f docker-compose.prod.yml stop
+
+# Parar y eliminar contenedores y red
+docker compose -f docker-compose.prod.yml down
+
+# Destruir todo: contenedores, red e imágenes del proyecto
+docker compose -f docker-compose.prod.yml down --rmi all --remove-orphans
+```
+
+### Solo Docker (sin compose)
+
+```bash
+# Build de la imagen de desarrollo
+docker build --target dev -t rodrisaiz-com:dev .
+
+# Build de la imagen de producción
+docker build --target prod -t rodrisaiz-com:prod .
+```
+
+## 👀 Saber más
+
+Consulta la [documentación de Astro](https://docs.astro.build) o únete a su [servidor de Discord](https://astro.build/chat).

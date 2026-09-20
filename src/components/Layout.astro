@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-//import Navbar from "./Navbar.astro";
+import DockNav from "./DockNav.astro";
+import Footer from "./Footer.astro";
 
 const {
   title = "Rodri Saiz portfolio",
@@ -47,7 +48,7 @@ const {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Rodri Saiz",
-    "url": "https://tudominio.com",
+    "url": "https://rodrisaiz.com",
     "jobTitle": "Software Engineer",
     "sameAs": [
       "https://github.com/rodrisaiz",
@@ -63,6 +64,10 @@ const {
     <main>
       <slot />
     </main>
+
+    <Footer />
+
+    <DockNav />
 
 </body>
 </html>

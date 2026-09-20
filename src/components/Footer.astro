@@ -1,0 +1,27 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <p class="footer-copy">
+    &copy; {year} Rodri Saiz. All rights reserved — and all lefts too.
+  </p>
+</footer>
+
+<style>
+  .site-footer {
+    max-width: 1320px;
+    margin: 0 auto;
+
+    padding: 2rem clamp(1.25rem, 5vw, 2rem) 6rem;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+  }
+
+  .footer-copy {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+</style>

@@ -2,6 +2,9 @@
   --bg: black;
   --text: #f8fafc;
   --primary: #38bdf8;
+  --text-muted: #a3a3a3;
+  --border: rgba(255, 255, 255, 0.08);
+  --surface: rgba(255, 255, 255, 0.04);
 }
 
 * {
@@ -18,12 +21,14 @@ body {
   font-family: system-ui;
   background: var(--bg);
   color: var(--text);
+  font-size: 1.0625rem;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 section {
-  padding: 5rem 2rem;
-  max-width: 1200px;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem);
+  max-width: 1320px;
   margin: auto;
 }
 
@@ -39,4 +44,8 @@ h2 {
 a {
   color: var(--primary);
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }

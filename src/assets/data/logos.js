@@ -8,7 +8,7 @@ export const logos = [
     logo: '/logos/bash.svg'
   },
   {
-    name: 'Boostrap',
+    name: 'Bootstrap',
     logo: '/logos/bootstrap.svg'
   },
   {
@@ -41,7 +41,7 @@ export const logos = [
   },
   {
     name: 'Laravel',
-    logo: '/logos/git.svg'
+    logo: '/logos/laravel.svg'
   },
   {
     name: 'Linux',
